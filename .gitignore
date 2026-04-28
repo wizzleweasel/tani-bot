@@ -1,0 +1,47 @@
+
+# MemPalace per-project files (issue #185)
+mempalace.yaml
+entities.json
+
+# Secrets and credentials
+.github_token.txt
+.github_token_debug.txt
+CONTEXT_BUFFER_5PERCENT.md
+TOOLS.md
+PHASE1_FINAL_SUMMARY.md
+SECURITY_UPDATE_SUMMARY.md
+
+# Scripts with hardcoded credentials
+check_bot_space.py
+fix_bot_requirements.py
+fix_bot_retry.py
+fix_bot_sync.py
+recreate_bot_docker.py
+supabase_direct_migration.py
+supabase_psql_migration.py
+upload_bot_to_hf.py
+upload_to_hf.py
+deploy_ai_bot.py
+deploy_simple_assistant.py
+upload_simple_assistant.py
+
+# Conversation logs with credentials
+conversations/*.json
+
+# Archive scripts with hardcoded tokens
+archive/phase1-scripts/*.py
+
+# Local state
+.openclaw/workspace-state.json
+.local/
+
+# HF datasets (keep source, not output)
+hf_datasets/
+
+# Python
+*.pyc
+__pycache__/
+.env
+venv/
+.env.local
+*.log
