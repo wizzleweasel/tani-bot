@@ -9,10 +9,12 @@ import requests
 import os
 from datetime import datetime
 
-# Configuration - Use Environment Variables (set in HF Secrets)
+# Configuration - Use HF Space Secrets
+# You've set: GROQ_API_KEY
+# Need to add: SUPABASE_KEY
 SUPABASE_URL = "https://cdlybfnpphzzphwathjx.supabase.co"
-SUPABASE_KEY = os.environ.get("SUPABASE_KEY")
-GROQ_API_KEY = os.environ.get("GROQ_API_KEY")
+SUPABASE_KEY = os.environ.get("SUPABASE_KEY")  # Add this to HF Secrets
+GROQ_API_KEY = os.environ.get("GROQ_API_KEY")  # ✅ Already set
 GROQ_URL = "https://api.groq.com/openai/v1/chat/completions"
 MODEL = "qwen/qwen3-32b"
 

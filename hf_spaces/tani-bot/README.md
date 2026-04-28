@@ -21,11 +21,10 @@ Asisten pertanian berbasis AI untuk petani Indonesia.
 - 19 komoditas (padi, jagung, cabe, kopi, dll)
 - Response time <2 detik
 
-## 🔧 Setup Secrets
+## 🔧 Secrets (Already Configured)
 
-Di Hugging Face Space settings, tambahkan:
-- `SUPABASE_KEY`: Supabase service role key
-- `GROQ_API_KEY`: Groq API key
+✅ `GROQ_API_KEY` - Already set by Wicak  
+⚠️ `SUPABASE_KEY` - Add in Space Settings → Secrets
 
 ## 📊 Dataset
 
