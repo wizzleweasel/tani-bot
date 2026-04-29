@@ -1,12 +1,11 @@
 {
-  "milestone": "PAPUA_100_PERCENT_COMPLETE",
-  "completed_provinces": ["Aceh", "Sumatera Utara", "Jawa Barat", "Banten", "DKI Jakarta", "Bali", "Jawa Tengah", "DI Yogyakarta", "Jawa Timur", "Kalimantan Barat", "Kalimantan Tengah", "Kalimantan Selatan", "Kalimantan Timur", "Kalimantan Utara", "Sulawesi Utara", "Gorontalo", "Sulawesi Tengah", "Sulawesi Barat", "Sulawesi Selatan", "Sulawesi Tenggara", "Nusa Tenggara Barat", "Nusa Tenggara Timur", "Maluku", "Maluku Utara", "Papua", "Papua Barat", "Papua Selatan", "Papua Tengah", "Papua Pegunungan", "Papua Barat Daya"],
+  "milestone": "100_PERCENT_COMPLETE",
+  "completed_provinces": ["Aceh", "Sumatera Utara", "Sumatera Barat", "Riau", "Kepulauan Riau", "Jambi", "Sumatera Selatan", "Bengkulu", "Lampung", "Kepulauan Bangka Belitung", "Jawa Barat", "Banten", "DKI Jakarta", "Bali", "Jawa Tengah", "DI Yogyakarta", "Jawa Timur", "Kalimantan Barat", "Kalimantan Tengah", "Kalimantan Selatan", "Kalimantan Timur", "Kalimantan Utara", "Sulawesi Utara", "Gorontalo", "Sulawesi Tengah", "Sulawesi Barat", "Sulawesi Selatan", "Sulawesi Tenggara", "Nusa Tenggara Barat", "Nusa Tenggara Timur", "Maluku", "Maluku Utara", "Papua", "Papua Barat", "Papua Selatan", "Papua Tengah", "Papua Pegunungan", "Papua Barat Daya"],
   "total_processed": 514,
   "total_kabupaten": 514,
   "progress_percent": 100,
   "current_status": "🎉 100% COMPLETE - ALL INDONESIA!",
-  "cpu_monitoring": "active (<70%)",
-  "context_flush": "active",
-  "completion_date": "2026-04-29T10:15:00Z",
-  "last_updated": "2026-04-29T10:15:00Z"
+  "completion_date": "2026-04-29T11:30:00Z",
+  "data_file": "datasets/kecamatan_with_coords.json",
+  "last_updated": "2026-04-29T11:30:00Z"
 }
