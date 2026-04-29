@@ -1,9 +1,8 @@
 {
-  "processed": ["1101", "1102", "1103", "1104", "1105", "1106", "1107", "1108", "1109", "1110", "1111", "1112", "1113", "1114", "1115", "1116", "1117", "1171", "1172", "1173", "1174", "1175"],
-  "results_count": 22,
-  "current_province": "Aceh",
-  "province_complete": true,
-  "next_province": "Sumatera Utara",
+  "processed_provinces": ["Aceh", "Sumatera Utara (partial)"],
+  "total_processed": 36,
   "total_kabupaten": 514,
-  "last_updated": "2026-04-29T03:45:00Z"
+  "progress_percent": 7.0,
+  "current_status": "Processing Sumatera Utara",
+  "last_updated": "2026-04-29T03:50:00Z"
 }
