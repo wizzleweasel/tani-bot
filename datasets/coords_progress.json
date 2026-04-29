@@ -1,48 +1,9 @@
 {
-  "processed": ["1101", "1102", "1103", "1104", "1105", "1106", "1107", "1108", "1109", "1110"],
-  "results": {
-    "1101": {
-      "kabupaten": "Simeulue",
-      "province": "Aceh",
-      "lat": 2.644,
-      "lon": 96.026,
-      "source": "web_search",
-      "timestamp": "2026-04-29T03:35:00Z"
-    },
-    "1102": {
-      "kabupaten": "Aceh Singkil",
-      "province": "Aceh",
-      "lat": 2.287,
-      "lon": 97.788,
-      "source": "web_search",
-      "timestamp": "2026-04-29T03:35:00Z"
-    },
-    "1103": {
-      "kabupaten": "Aceh Selatan",
-      "province": "Aceh",
-      "lat": 3.312,
-      "lon": 97.352,
-      "source": "web_search",
-      "timestamp": "2026-04-29T03:35:00Z"
-    },
-    "1104": {
-      "kabupaten": "Aceh Tenggara",
-      "province": "Aceh",
-      "lat": 3.333,
-      "lon": 97.7,
-      "source": "web_search",
-      "timestamp": "2026-04-29T03:35:00Z"
-    },
-    "1105": {
-      "kabupaten": "Aceh Timur",
-      "province": "Aceh",
-      "lat": 4.633,
-      "lon": 97.633,
-      "source": "web_search",
-      "timestamp": "2026-04-29T03:35:00Z"
-    }
-  },
-  "current_kabupaten": "1105",
-  "batch_number": 1,
-  "total_kabupaten": 514
+  "processed": ["1101", "1102", "1103", "1104", "1105", "1106", "1107", "1108", "1109", "1110", "1111", "1112", "1113", "1114", "1115", "1116", "1117", "1171", "1172", "1173", "1174", "1175"],
+  "results_count": 22,
+  "current_province": "Aceh",
+  "province_complete": true,
+  "next_province": "Sumatera Utara",
+  "total_kabupaten": 514,
+  "last_updated": "2026-04-29T03:45:00Z"
 }

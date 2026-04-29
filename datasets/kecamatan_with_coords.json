@@ -1,82 +1,24 @@
 {
-  "1101": {
-    "kabupaten": "Simeulue",
-    "province": "Aceh",
-    "lat": 2.644,
-    "lon": 96.026,
-    "source": "web_search",
-    "timestamp": "2026-04-29T03:35:00Z"
-  },
-  "1102": {
-    "kabupaten": "Aceh Singkil",
-    "province": "Aceh",
-    "lat": 2.287,
-    "lon": 97.788,
-    "source": "web_search",
-    "timestamp": "2026-04-29T03:35:00Z"
-  },
-  "1103": {
-    "kabupaten": "Aceh Selatan",
-    "province": "Aceh",
-    "lat": 3.312,
-    "lon": 97.352,
-    "source": "web_search",
-    "timestamp": "2026-04-29T03:35:00Z"
-  },
-  "1104": {
-    "kabupaten": "Aceh Tenggara",
-    "province": "Aceh",
-    "lat": 3.333,
-    "lon": 97.7,
-    "source": "web_search",
-    "timestamp": "2026-04-29T03:35:00Z"
-  },
-  "1105": {
-    "kabupaten": "Aceh Timur",
-    "province": "Aceh",
-    "lat": 4.633,
-    "lon": 97.633,
-    "source": "web_search",
-    "timestamp": "2026-04-29T03:35:00Z"
-  },
-  "1106": {
-    "kabupaten": "Aceh Tengah",
-    "province": "Aceh",
-    "lat": 4.448,
-    "lon": 96.835,
-    "source": "web_search",
-    "timestamp": "2026-04-29T03:37:00Z"
-  },
-  "1107": {
-    "kabupaten": "Aceh Barat",
-    "province": "Aceh",
-    "lat": 4.45,
-    "lon": 96.167,
-    "source": "web_search",
-    "timestamp": "2026-04-29T03:37:00Z"
-  },
-  "1108": {
-    "kabupaten": "Aceh Besar",
-    "province": "Aceh",
-    "lat": 5.383,
-    "lon": 95.517,
-    "source": "web_search",
-    "timestamp": "2026-04-29T03:37:00Z"
-  },
-  "1109": {
-    "kabupaten": "Pidie",
-    "province": "Aceh",
-    "lat": 5.08,
-    "lon": 96.11,
-    "source": "web_search",
-    "timestamp": "2026-04-29T03:37:00Z"
-  },
-  "1110": {
-    "kabupaten": "Bireuen",
-    "province": "Aceh",
-    "lat": 5.203,
-    "lon": 96.701,
-    "source": "web_search",
-    "timestamp": "2026-04-29T03:37:00Z"
-  }
+  "1101": {"kabupaten": "Simeulue", "province": "Aceh", "lat": 2.644, "lon": 96.026, "source": "web_search"},
+  "1102": {"kabupaten": "Aceh Singkil", "province": "Aceh", "lat": 2.287, "lon": 97.788, "source": "web_search"},
+  "1103": {"kabupaten": "Aceh Selatan", "province": "Aceh", "lat": 3.312, "lon": 97.352, "source": "web_search"},
+  "1104": {"kabupaten": "Aceh Tenggara", "province": "Aceh", "lat": 3.333, "lon": 97.7, "source": "web_search"},
+  "1105": {"kabupaten": "Aceh Timur", "province": "Aceh", "lat": 4.633, "lon": 97.633, "source": "web_search"},
+  "1106": {"kabupaten": "Aceh Tengah", "province": "Aceh", "lat": 4.448, "lon": 96.835, "source": "web_search"},
+  "1107": {"kabupaten": "Aceh Barat", "province": "Aceh", "lat": 4.45, "lon": 96.167, "source": "web_search"},
+  "1108": {"kabupaten": "Aceh Besar", "province": "Aceh", "lat": 5.383, "lon": 95.517, "source": "web_search"},
+  "1109": {"kabupaten": "Pidie", "province": "Aceh", "lat": 5.08, "lon": 96.11, "source": "web_search"},
+  "1110": {"kabupaten": "Bireuen", "province": "Aceh", "lat": 5.203, "lon": 96.701, "source": "web_search"},
+  "1111": {"kabupaten": "Aceh Utara", "province": "Aceh", "lat": 4.97, "lon": 97.14, "source": "web_search"},
+  "1112": {"kabupaten": "Aceh Barat Daya", "province": "Aceh", "lat": 3.796, "lon": 97.007, "source": "web_search"},
+  "1113": {"kabupaten": "Gayo Lues", "province": "Aceh", "lat": 3.95, "lon": 97.39, "source": "web_search"},
+  "1114": {"kabupaten": "Aceh Tamiang", "province": "Aceh", "lat": 4.25, "lon": 97.967, "source": "web_search"},
+  "1115": {"kabupaten": "Nagan Raya", "province": "Aceh", "lat": 4.19, "lon": 96.509, "source": "web_search"},
+  "1116": {"kabupaten": "Aceh Jaya", "province": "Aceh", "lat": 4.86, "lon": 95.64, "source": "web_search"},
+  "1117": {"kabupaten": "Bener Meriah", "province": "Aceh", "lat": 4.73, "lon": 96.862, "source": "web_search"},
+  "1171": {"kabupaten": "Banda Aceh", "province": "Aceh", "lat": 5.558, "lon": 95.333, "source": "web_search"},
+  "1172": {"kabupaten": "Sabang", "province": "Aceh", "lat": 5.89, "lon": 95.316, "source": "web_search"},
+  "1173": {"kabupaten": "Lhokseumawe", "province": "Aceh", "lat": 5.18, "lon": 97.151, "source": "web_search"},
+  "1174": {"kabupaten": "Subulussalam", "province": "Aceh", "lat": 2.645, "lon": 98.017, "source": "web_search"},
+  "1175": {"kabupaten": "Langsa", "province": "Aceh", "lat": 4.468, "lon": 97.968, "source": "web_search"}
 }
