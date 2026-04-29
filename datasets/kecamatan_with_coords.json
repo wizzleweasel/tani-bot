@@ -38,5 +38,45 @@
     "lon": 97.633,
     "source": "web_search",
     "timestamp": "2026-04-29T03:35:00Z"
+  },
+  "1106": {
+    "kabupaten": "Aceh Tengah",
+    "province": "Aceh",
+    "lat": 4.448,
+    "lon": 96.835,
+    "source": "web_search",
+    "timestamp": "2026-04-29T03:37:00Z"
+  },
+  "1107": {
+    "kabupaten": "Aceh Barat",
+    "province": "Aceh",
+    "lat": 4.45,
+    "lon": 96.167,
+    "source": "web_search",
+    "timestamp": "2026-04-29T03:37:00Z"
+  },
+  "1108": {
+    "kabupaten": "Aceh Besar",
+    "province": "Aceh",
+    "lat": 5.383,
+    "lon": 95.517,
+    "source": "web_search",
+    "timestamp": "2026-04-29T03:37:00Z"
+  },
+  "1109": {
+    "kabupaten": "Pidie",
+    "province": "Aceh",
+    "lat": 5.08,
+    "lon": 96.11,
+    "source": "web_search",
+    "timestamp": "2026-04-29T03:37:00Z"
+  },
+  "1110": {
+    "kabupaten": "Bireuen",
+    "province": "Aceh",
+    "lat": 5.203,
+    "lon": 96.701,
+    "source": "web_search",
+    "timestamp": "2026-04-29T03:37:00Z"
   }
 }
