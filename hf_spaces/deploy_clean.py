@@ -9,7 +9,7 @@ from huggingface_hub import HfApi, login
 import os
 
 # Login with HF token (from environment variable)
-HF_TOKEN = os.environ.get("HF_TOKEN", "")
+HF_TOKEN = os.environ.get("HF_TOKEN")
 if not HF_TOKEN:
     print("❌ Error: HF_TOKEN environment variable not set")
     print("   Set it with: export HF_TOKEN='your_token_here'")

@@ -140,7 +140,7 @@ git push origin main --force
 5. Add Environment Variables:
    - `SUPABASE_URL`: `https://cdlybfnpphzzphwathjx.supabase.co`
    - `SUPABASE_KEY`: [Your Supabase key]
-   - `GROQ_API_KEY`: `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`
+   - `GROQ_API_KEY`: [Your Groq key]
    - `GITHUB_REPO`: `wizzleweasel/tani-bot`
 
 ### Step 4: Test All 5 Pages
