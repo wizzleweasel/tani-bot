@@ -4,32 +4,53 @@ emoji: 🌾
 colorFrom: green
 colorTo: blue
 sdk: streamlit
-sdk_version: 1.32.0
-app_file: app.py
 pinned: false
 license: mit
 ---
 
-# 🌾 TaniBot - Asisten Pertanian Indonesia
+# 🌾 TaniBot - Agricultural AI Assistant
 
-Asisten pertanian berbasis AI untuk petani Indonesia.
+**Unified Dashboard: MVP + RAG Chat**
 
-## ✨ Fitur
+## 📄 5 Pages
 
-- 3,000+ dokumen pertanian
-- 100% Bahasa Indonesia
-- 19 komoditas (padi, jagung, cabe, kopi, dll)
-- Response time <2 detik
+1. **🏠 Home** - Overview & statistics
+2. **🌤️ Weather** - Live Open-Meteo data + 7-day forecast
+3. **🌾 Crop Advisor** - LLM-powered crop recommendations
+4. **📊 Yield Prediction** - XGBoost ML model (R² = 0.96)
+5. **💬 RAG Chat** - AI chat with 3,000+ agricultural documents
 
-## 🔧 Secrets (Already Configured)
+## ✨ Features
 
-✅ `GROQ_API_KEY` - Already set by Wicak  
-⚠️ `SUPABASE_KEY` - Add in Space Settings → Secrets
+- ✅ 3,000+ RAG documents (100% Bahasa Indonesia)
+- ✅ 19 crops supported
+- ✅ Weather insights (Open-Meteo)
+- ✅ ML yield prediction (XGBoost)
+- ✅ LLM crop advisor (Groq)
+- ✅ Response <2 seconds
+
+## 🔐 Required Secrets
+
+Add these in **Settings → Repository secrets**:
+
+| Secret | Description |
+|--------|-------------|
+| `GROQ_API_KEY` | Groq API key for LLM features |
+| `SUPABASE_KEY` | Supabase service role key for RAG |
 
 ## 📊 Dataset
 
-https://huggingface.co/baguswicak
+- **QA Pairs:** 1,000 entries
+- **Keywords:** 1,000 entries  
+- **Transcripts:** 1,000 entries
+- **Total:** 3,000 entries (100% Bahasa Indonesia)
 
-## 🐙 GitHub
+## 🔗 Links
 
-https://github.com/wizzleweasel/tani-bot
+- **GitHub:** https://github.com/wizzleweasel/tani-bot
+- **Datasets:** https://huggingface.co/baguswicak
+
+---
+
+**Version:** v3.0 - Unified  
+**Date:** 2026-04-29
