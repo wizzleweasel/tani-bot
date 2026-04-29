@@ -1,12 +1,12 @@
 {
-  "milestone": "100_KABUPATEN_COMPLETE",
-  "completed_provinces": ["Aceh", "Sumatera Utara", "Jawa Barat", "Banten", "DKI Jakarta", "Bali"],
-  "total_processed": 105,
+  "milestone": "150_KABUPATEN_APPROACHING",
+  "completed_provinces": ["Aceh", "Sumatera Utara", "Jawa Barat", "Banten", "DKI Jakarta", "Bali", "Jawa Tengah", "DI Yogyakarta"],
+  "total_processed": 145,
   "total_kabupaten": 514,
-  "progress_percent": 20.4,
-  "current_status": "🎉 100+ MILESTONE REACHED!",
+  "progress_percent": 28.2,
+  "current_status": "🚀 Jawa + DIY Complete!",
   "cpu_monitoring": "active (<70%)",
   "context_flush": "active",
   "next_target": "200 kabupaten",
-  "last_updated": "2026-04-29T04:05:00Z"
+  "last_updated": "2026-04-29T04:45:00Z"
 }
