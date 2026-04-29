@@ -1,0 +1,45 @@
+name: 🚀 Deploy to Hugging Face
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'hf_spaces/tani-bot/**'
+      - 'datasets/**'
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: 📥 Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+      
+      - name: 🐍 Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+      
+      - name: 📦 Install huggingface_hub
+        run: pip install huggingface_hub
+      
+      - name: 🚀 Deploy to HF Space
+        env:
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
+        run: |
+          cd hf_spaces/tani-bot
+          
+          # Configure git with HF token
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git config --global user.name "GitHub Actions"
+          git remote set-url origin https://${HF_TOKEN}@huggingface.co/spaces/baguswicak/tani-bot
+          
+          # Push to HF Space
+          git add -A
+          git diff --quiet && git diff --staged --quiet || git commit -m "🤖 Auto-deploy from GitHub Actions"
+          git push origin main --force
+          
+          echo "✅ Deployment complete!"
+          echo "📍 HF Space: https://huggingface.co/spaces/baguswicak/tani-bot"
