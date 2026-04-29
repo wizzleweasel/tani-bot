@@ -58,6 +58,22 @@ page = st.sidebar.radio(
 )
 
 # ============================================
+# WEATHER HELPER FUNCTIONS
+# ============================================
+def get_weather_emoji(rainfall_mm: float) -> str:
+    """Convert rainfall probability to emoji"""
+    if rainfall_mm is None or rainfall_mm == 0:
+        return "☀️"  # Sunny
+    elif rainfall_mm < 2:
+        return "⛅"  # Partly cloudy
+    elif rainfall_mm < 10:
+        return "🌦️"  # Light rain
+    elif rainfall_mm < 25:
+        return "🌧️"  # Moderate rain
+    else:
+        return "⛈️"  # Heavy rain
+
+# ============================================
 # RAG FUNCTIONS (from v2.0)
 # ============================================
 @st.cache_data(ttl=300)
@@ -182,8 +198,15 @@ if page == "🏠 Home":
 # ============================================
 # 🌤️ WEATHER PAGE
 # ============================================
-elif page == "🌤️ Weather":
-    st.title("🌤️ Weather Insights")
+elif page == "🌤️ Cuaca & Iklim":
+    st.title("🌤️ Cuaca & Iklim")
+    
+    # Import location database
+    try:
+        from data.location_db import LOCATION_DB, get_location_coords, get_location_suggestions
+        location_db_available = True
+    except:
+        location_db_available = False
     
     # Try to import weather pipeline
     try:
@@ -192,68 +215,164 @@ elif page == "🌤️ Weather":
         pipeline_available = True
     except:
         pipeline_available = False
-        st.warning("⚠️ Weather pipeline not available. Using direct API.")
+        st.warning("⚠️ Pipeline cuaca tidak tersedia. Menggunakan API langsung.")
     
-    col1, col2 = st.columns(2)
+    # Location search with autocomplete
+    st.markdown("**📍 Pilih Lokasi**")
+    col1, col2, col3 = st.columns([2, 1, 1])
+    
     with col1:
-        location = st.text_input("Location", "Jakarta")
-    with col2:
-        lat = st.number_input("Latitude", value=-6.2088, format="%.4f")
-        lon = st.number_input("Longitude", value=106.8456, format="%.4f")
+        # Get suggestions for autocomplete
+        if 'location_input' not in st.session_state:
+            st.session_state.location_input = "Pacet, Mojokerto, Jawa Timur"
+        
+        # Show autocomplete dropdown
+        suggestions = get_location_suggestions(st.session_state.location_input) if location_db_available else []
+        selected_location = st.selectbox(
+            "Kecamatan / Kota",
+            suggestions if suggestions else list(LOCATION_DB.keys())[:20],
+            index=0 if "Pacet" in st.session_state.location_input else 0,
+            key="location_select"
+        )
+        st.session_state.location_input = selected_location
     
-    if st.button("Get Weather"):
-        with st.spinner("Fetching weather data..."):
+    with col2:
+        # Auto-fill coordinates
+        lat, lon = get_location_coords(selected_location) if location_db_available else (-7.5333, 112.4333)
+        lat = st.number_input("Lintang (°)", value=lat, format="%.4f", key="lat_input")
+    
+    with col3:
+        lon = st.number_input("Bujur (°)", value=lon, format="%.4f", key="lon_input")
+    
+    # Fetch weather button
+    if st.button("🔍 Cek Cuaca", use_container_width=True):
+        st.session_state.weather_data = None
+        st.session_state.weather_loaded = True
+    
+    # Display weather data
+    if st.session_state.get('weather_loaded'):
+        with st.spinner("Mengambil data cuaca..."):
             if pipeline_available:
-                weather = weather_pipeline.get_weather_for_location(lat, lon, location)
+                weather = weather_pipeline.get_weather_for_location(lat, lon, selected_location)
             else:
                 # Direct Open-Meteo API
-                url = f"https://api.open-meteo.com/v1/forecast?latitude={lat}&longitude={lon}&current=temperature_2m,relative_humidity_2m,precipitation,wind_speed_10m&daily=temperature_2m_max,temperature_2m_min&timezone=Asia%2FBangkok"
-                response = requests.get(url)
+                url = f"https://api.open-meteo.com/v1/forecast?latitude={lat}&longitude={lon}&current=temperature_2m,relative_humidity_2m,precipitation,weather_code,wind_speed_10m&daily=temperature_2m_max,temperature_2m_min,precipitation_sum,weather_code&timezone=Asia%2FBangkok"
+                response = requests.get(url, timeout=10)
                 weather = response.json() if response.status_code == 200 else {}
-            
-            st.subheader(f"Current Weather in {location}")
-            
-            if pipeline_available:
-                current = weather.get('current', {})
-                forecast = weather.get('forecast', {})
-            else:
-                current = weather.get('current', {})
-                forecast = weather.get('daily', {})
+        
+        st.session_state.weather_data = weather
+        
+        # Current weather
+        st.markdown("---")
+        st.subheader("☀️ Cuaca Saat Ini")
+        
+        if weather and 'current' in weather:
+            current = weather.get('current', {})
             
             col1, col2, col3, col4 = st.columns(4)
             with col1:
-                temp = current.get('temperature_2m', current.get('temperature_2m', 'N/A'))
-                st.metric("Temperature", f"{temp}°C" if temp != 'N/A' else 'N/A')
+                temp = current.get('temperature_2m', 'N/A')
+                st.metric("🌡️ Suhu", f"{temp}°C" if temp != 'N/A' else 'N/A')
             with col2:
                 humidity = current.get('relative_humidity_2m', 'N/A')
-                st.metric("Humidity", f"{humidity}%" if humidity != 'N/A' else 'N/A')
+                st.metric("💧 Kelembaban", f"{humidity}%" if humidity != 'N/A' else 'N/A')
             with col3:
                 rain = current.get('precipitation', 'N/A')
-                st.metric("Rainfall", f"{rain}mm" if rain != 'N/A' else 'N/A')
+                st.metric("🌧️ Curah Hujan", f"{rain}mm" if rain != 'N/A' else 'N/A')
             with col4:
                 wind = current.get('wind_speed_10m', 'N/A')
-                st.metric("Wind Speed", f"{wind} km/h" if wind != 'N/A' else 'N/A')
-            
-            st.subheader("7-Day Forecast")
-            if forecast:
-                if isinstance(forecast.get('time'), list):
-                    dates = forecast.get('time', [])[:7]
-                    temps_max = forecast.get('temperature_2m_max', forecast.get('temperature_2m_max', []))[:7]
-                    temps_min = forecast.get('temperature_2m_min', forecast.get('temperature_2m_min', []))[:7]
+                st.metric("💨 Kecepatan Angin", f"{wind} km/h" if wind != 'N/A' else 'N/A')
+        
+        # 7-Day Forecast
+        if weather and 'forecast_7day' in weather:
+            forecast_7day = weather.get('forecast_7day', {})
+            if forecast_7day:
+                st.markdown("---")
+                st.subheader("📅 Prakiraan 7 Hari")
+                
+                if isinstance(forecast_7day.get('time'), list):
+                    dates = forecast_7day.get('time', [])[:7]
+                    temps_max = forecast_7day.get('temperature_2m_max', [])[:7]
+                    temps_min = forecast_7day.get('temperature_2m_min', [])[:7]
+                    precip = forecast_7day.get('precipitation_sum', [])[:7]
                 else:
-                    dates = forecast.get('time', [])[:7] if forecast.get('time') else []
-                    temps_max = forecast.get('temperature_2m_max', [])[:7] if forecast.get('temperature_2m_max') else []
-                    temps_min = forecast.get('temperature_2m_min', [])[:7] if forecast.get('temperature_2m_min') else []
+                    dates = forecast_7day.get('time', [])[:7] if forecast_7day.get('time') else []
+                    temps_max = forecast_7day.get('temperature_2m_max', [])[:7] if forecast_7day.get('temperature_2m_max') else []
+                    temps_min = forecast_7day.get('temperature_2m_min', [])[:7] if forecast_7day.get('temperature_2m_min') else []
+                    precip = forecast_7day.get('precipitation_sum', [])[:7] if forecast_7day.get('precipitation_sum') else []
                 
                 if dates:
+                    # Merge min/max temp and add weather emoji
                     forecast_data = {
-                        'Date': dates,
-                        'Max Temp (°C)': temps_max,
-                        'Min Temp (°C)': temps_min
+                        'Tanggal': dates,
+                        'Cuaca': [get_weather_emoji(p) for p in precip],
+                        'Suhu (°C)': [f"{round(min(t))} - {round(max(t))}" for t in zip(temps_min, temps_max)]
                     }
-                    st.dataframe(forecast_data, use_container_width=True)
-                else:
-                    st.info("No forecast data available")
+                    st.dataframe(forecast_data, height=180, use_container_width=True)
+        
+        # 30-Day Forecast (NASA POWER + EMA)
+        if weather and 'forecast_30day' in weather and pipeline_available:
+            forecast_30day = weather.get('forecast_30day', {})
+            if forecast_30day:
+                st.markdown("---")
+                st.subheader("📅 Prakiraan 30 Hari")
+                
+                dates_30 = forecast_30day.get('time', [])[:30]
+                temps_max_30 = forecast_30day.get('temperature_2m_max', [])[:30]
+                temps_min_30 = forecast_30day.get('temperature_2m_min', [])[:30]
+                precip_30 = forecast_30day.get('precipitation_sum', [])[:30]
+                
+                if dates_30:
+                    forecast_data_30 = {
+                        'Tanggal': dates_30,
+                        'Cuaca': [get_weather_emoji(p) for p in precip_30],
+                        'Suhu (°C)': [f"{round(min(t))} - {round(max(t))}" for t in zip(temps_min_30, temps_max_30)]
+                    }
+                    st.dataframe(forecast_data_30, height=180, use_container_width=True)
+        
+        # 12-Week Forecast (3 months)
+        if weather and 'forecast_30day' in weather and pipeline_available:
+            forecast_30day = weather.get('forecast_30day', {})
+            if forecast_30day:
+                st.markdown("---")
+                st.subheader("📅 Prakiraan 3 Bulan (Mingguan)")
+                
+                # Group 30 days into 12 weeks (2-3 days per week)
+                dates_30 = forecast_30day.get('time', [])[:30]
+                temps_max_30 = forecast_30day.get('temperature_2m_max', [])[:30]
+                temps_min_30 = forecast_30day.get('temperature_2m_min', [])[:30]
+                precip_30 = forecast_30day.get('precipitation_sum', [])[:30]
+                
+                if dates_30:
+                    # Create weekly averages
+                    weekly_dates = []
+                    weekly_temps = []
+                    weekly_precip = []
+                    
+                    for i in range(0, min(30, len(dates_30)), 2-3):
+                        week_end = min(i+2, len(dates_30)-1)
+                        week_dates = dates_30[i:week_end+1]
+                        week_max = temps_max_30[i:week_end+1]
+                        week_min = temps_min_30[i:week_end+1]
+                        week_precip = precip_30[i:week_end+1]
+                        
+                        weekly_dates.append(f"{week_dates[0]} - {week_dates[-1]}")
+                        weekly_temps.append(f"{round(sum(week_min)/len(week_min))} - {round(sum(week_max)/len(week_max))}")
+                        weekly_precip.append(sum(week_precip))
+                    
+                    forecast_data_weekly = {
+                        'Minggu': weekly_dates[:12],
+                        'Cuaca': [get_weather_emoji(p) for p in weekly_precip[:12]],
+                        'Suhu (°C)': weekly_temps[:12]
+                    }
+                    st.dataframe(forecast_data_weekly, height=180, use_container_width=True)
+        
+        # NASA POWER test status
+        if pipeline_available:
+            st.markdown("---")
+            st.info("ℹ️ Data cuaca 30 hari menggunakan NASA POWER + EMA forecasting")
+        
+        st.session_state.weather_loaded = False
 
 # ============================================
 # 🌾 CROP ADVISOR PAGE
