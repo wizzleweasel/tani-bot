@@ -13,6 +13,10 @@ from typing import Dict, List, Tuple, Optional
 from datetime import datetime, timedelta
 
 # Configuration
+GITHUB_REPO = "wizzleweasel/tani-bot"
+GITHUB_BRANCH = "main"
+GITHUB_RAW_BASE = f"https://raw.githubusercontent.com/{GITHUB_REPO}/{GITHUB_BRANCH}"
+
 SUPABASE_URL = "https://cdlybfnpphzzphwathjx.supabase.co"
 SUPABASE_KEY = os.environ.get("SUPABASE_KEY", "")
 CACHE_FILE = "datasets/kecamatan_cache.json"
@@ -56,6 +60,20 @@ def save_cache(locations: Dict):
             }, f, ensure_ascii=False, indent=2)
     except Exception as e:
         print(f"Error saving cache: {e}")
+
+
+def fetch_from_github_cdn(filename: str) -> Optional[Dict]:
+    """Fetch data from GitHub CDN (raw.githubusercontent.com)"""
+    url = f"{GITHUB_RAW_BASE}/datasets/{filename}"
+    
+    try:
+        response = requests.get(url, timeout=10)
+        if response.status_code == 200:
+            return response.json()
+    except Exception as e:
+        print(f"Error fetching from GitHub CDN: {e}")
+    
+    return None
 
 
 def fetch_from_supabase(search_term: str = "", limit: int = 100) -> List[Dict]:
