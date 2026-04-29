@@ -13,6 +13,9 @@ from typing import Dict, List, Tuple, Optional
 KECAMATAN_CSV_URL = "https://raw.githubusercontent.com/wizzleweasel/tani-bot/main/datasets/kecamatan_raw.csv"
 CACHE_FILE = "datasets/kecamatan_coords_cache.json"
 
+# Import kabupaten mapping
+from .kabupaten_map import KABUPATEN_MAP
+
 # Province mapping from BPS codes
 PROVINCE_MAP = {
     '11': 'Aceh', '12': 'Sumatera Utara', '13': 'Sumatera Barat',
@@ -88,7 +91,7 @@ def save_coords_cache():
 def get_location_suggestions(search_term: str, max_results: int = 20) -> List[str]:
     """
     Get autocomplete suggestions for location search.
-    Fast search through 7k+ kecamatan names.
+    Fast search through 7k+ kecamatan names with full kabupaten names.
     """
     if not search_term:
         return []
@@ -102,8 +105,13 @@ def get_location_suggestions(search_term: str, max_results: int = 20) -> List[st
     for kec in kecamatan_data:
         # Search in name
         if search_lower in kec['name'].lower():
-            province = PROVINCE_MAP.get(kec['id'][:2], '')
-            location_name = f"{kec['name']}, {kec['city_code']}, {province}"
+            prov_code = kec['id'][:2]
+            kab_code = kec['foreign']
+            
+            province = PROVINCE_MAP.get(prov_code, '')
+            kabupaten = KABUPATEN_MAP.get(kab_code, kab_code)
+            
+            location_name = f"{kec['name']}, {kabupaten}, {province}"
             suggestions.append(location_name)
             
             if len(suggestions) >= max_results:
