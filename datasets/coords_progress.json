@@ -1,12 +1,13 @@
 {
-  "milestone": "MALUKU_COMPLETE",
+  "milestone": "PAPUA_IN_PROGRESS",
   "completed_provinces": ["Aceh", "Sumatera Utara", "Jawa Barat", "Banten", "DKI Jakarta", "Bali", "Jawa Tengah", "DI Yogyakarta", "Jawa Timur", "Kalimantan Barat", "Kalimantan Tengah", "Kalimantan Selatan", "Kalimantan Timur", "Kalimantan Utara", "Sulawesi Utara", "Gorontalo", "Sulawesi Tengah", "Sulawesi Barat", "Sulawesi Selatan", "Sulawesi Tenggara", "Nusa Tenggara Barat", "Nusa Tenggara Timur", "Maluku", "Maluku Utara"],
-  "total_processed": 370,
+  "papua_provinces_in_progress": ["Papua", "Papua Barat", "Papua Selatan", "Papua Tengah", "Papua Pegunungan", "Papua Barat Daya"],
+  "total_processed": 390,
   "total_kabupaten": 514,
-  "progress_percent": 72.0,
-  "current_status": "🎉 MALUKU COMPLETE - Over 72%!",
+  "progress_percent": 75.9,
+  "current_status": "🚀 PAPUA IN PROGRESS - Over 75%!",
   "cpu_monitoring": "active (<70%)",
   "context_flush": "active",
-  "next_target": "Papua (6 provinces, 144 kabupaten)",
-  "last_updated": "2026-04-29T07:15:00Z"
+  "next_target": "Complete remaining Papua regencies",
+  "last_updated": "2026-04-29T07:45:00Z"
 }
