@@ -201,12 +201,13 @@ if page == "🏠 Home":
 elif page == "🌤️ Cuaca & Iklim":
     st.title("🌤️ Cuaca & Iklim")
     
-    # Import location database
+    # Import kecamatan database (7k+ locations)
     try:
-        from data.location_db import LOCATION_DB, get_location_coords, get_location_suggestions
-        location_db_available = True
-    except:
-        location_db_available = False
+        from data.kecamatan_db import get_location_suggestions, get_location_coords, save_coordinates, load_kecamatan_data
+        kecamatan_available = True
+    except Exception as e:
+        kecamatan_available = False
+        st.warning(f"⚠️ Database kecamatan tidak tersedia: {e}")
     
     # Try to import weather pipeline
     try:
@@ -217,31 +218,51 @@ elif page == "🌤️ Cuaca & Iklim":
         pipeline_available = False
         st.warning("⚠️ Pipeline cuaca tidak tersedia. Menggunakan API langsung.")
     
-    # Location search with autocomplete
+    # Location search with autocomplete (7k+ kecamatan)
     st.markdown("**📍 Pilih Lokasi**")
-    col1, col2, col3 = st.columns([2, 1, 1])
     
-    with col1:
-        # Get suggestions for autocomplete
-        if 'location_input' not in st.session_state:
-            st.session_state.location_input = "Pacet, Mojokerto, Jawa Timur"
+    # Text input with autocomplete
+    if 'location_input' not in st.session_state:
+        st.session_state.location_input = ""
+    
+    search_term = st.text_input(
+        "🔍 Cari Kecamatan",
+        value=st.session_state.location_input,
+        placeholder="Ketik nama kecamatan (contoh: Pacet)",
+        key="location_search"
+    )
+    st.session_state.location_input = search_term
+    
+    # Show suggestions
+    if search_term and len(search_term) >= 2 and kecamatan_available:
+        suggestions = get_location_suggestions(search_term, max_results=10)
         
-        # Show autocomplete dropdown
-        suggestions = get_location_suggestions(st.session_state.location_input) if location_db_available else []
-        selected_location = st.selectbox(
-            "Kecamatan / Kota",
-            suggestions if suggestions else list(LOCATION_DB.keys())[:20],
-            index=0 if "Pacet" in st.session_state.location_input else 0,
-            key="location_select"
-        )
-        st.session_state.location_input = selected_location
+        if suggestions:
+            selected_location = st.selectbox(
+                "Pilih dari hasil:",
+                suggestions,
+                index=0,
+                key="location_select"
+            )
+            
+            # Auto-fill coordinates
+            lat, lon = get_location_coords(selected_location)
+            if lat is None:
+                lat, lon = -7.5333, 112.4333  # Default to Pacet
+        else:
+            st.info("Ketik minimal 2 huruf untuk mencari...")
+            selected_location = ""
+            lat, lon = -7.5333, 112.4333
+    else:
+        # Default location
+        selected_location = "Pacet, Mojokerto, Jawa Timur"
+        lat, lon = -7.5333, 112.4333
     
-    with col2:
-        # Auto-fill coordinates
-        lat, lon = get_location_coords(selected_location) if location_db_available else (-7.5333, 112.4333)
+    # Show coordinates
+    col1, col2 = st.columns(2)
+    with col1:
         lat = st.number_input("Lintang (°)", value=lat, format="%.4f", key="lat_input")
-    
-    with col3:
+    with col2:
         lon = st.number_input("Bujur (°)", value=lon, format="%.4f", key="lon_input")
     
     # Fetch weather button
