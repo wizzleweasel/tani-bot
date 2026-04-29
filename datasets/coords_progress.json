@@ -1,12 +1,12 @@
 {
-  "milestone": "JAWA_TIMUR_COMPLETE",
-  "completed_provinces": ["Aceh", "Sumatera Utara", "Jawa Barat", "Banten", "DKI Jakarta", "Bali", "Jawa Tengah", "DI Yogyakarta", "Jawa Timur"],
-  "total_processed": 183,
+  "milestone": "KALIMANTAN_COMPLETE",
+  "completed_provinces": ["Aceh", "Sumatera Utara", "Jawa Barat", "Banten", "DKI Jakarta", "Bali", "Jawa Tengah", "DI Yogyakarta", "Jawa Timur", "Kalimantan Barat", "Kalimantan Tengah", "Kalimantan Selatan", "Kalimantan Timur", "Kalimantan Utara"],
+  "total_processed": 239,
   "total_kabupaten": 514,
-  "progress_percent": 35.6,
-  "current_status": "🎉 All Java Island Complete!",
+  "progress_percent": 46.5,
+  "current_status": "🎉 KALIMANTAN COMPLETE - Almost Halfway!",
   "cpu_monitoring": "active (<70%)",
   "context_flush": "active",
-  "next_target": "Kalimantan (56 kabupaten)",
-  "last_updated": "2026-04-29T05:15:00Z"
+  "next_target": "Sulawesi (85 kabupaten)",
+  "last_updated": "2026-04-29T05:45:00Z"
 }
