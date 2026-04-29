@@ -1,12 +1,12 @@
 {
-  "milestone": "SULAWESI_COMPLETE",
-  "completed_provinces": ["Aceh", "Sumatera Utara", "Jawa Barat", "Banten", "DKI Jakarta", "Bali", "Jawa Tengah", "DI Yogyakarta", "Jawa Timur", "Kalimantan Barat", "Kalimantan Tengah", "Kalimantan Selatan", "Kalimantan Timur", "Kalimantan Utara", "Sulawesi Utara", "Gorontalo", "Sulawesi Tengah", "Sulawesi Barat", "Sulawesi Selatan", "Sulawesi Tenggara"],
-  "total_processed": 320,
+  "milestone": "NUSA_TENGGARA_COMPLETE",
+  "completed_provinces": ["Aceh", "Sumatera Utara", "Jawa Barat", "Banten", "DKI Jakarta", "Bali", "Jawa Tengah", "DI Yogyakarta", "Jawa Timur", "Kalimantan Barat", "Kalimantan Tengah", "Kalimantan Selatan", "Kalimantan Timur", "Kalimantan Utara", "Sulawesi Utara", "Gorontalo", "Sulawesi Tengah", "Sulawesi Barat", "Sulawesi Selatan", "Sulawesi Tenggara", "Nusa Tenggara Barat", "Nusa Tenggara Timur"],
+  "total_processed": 350,
   "total_kabupaten": 514,
-  "progress_percent": 62.3,
-  "current_status": "🎉 SULAWESI COMPLETE - Over 60%!",
+  "progress_percent": 68.1,
+  "current_status": "🎉 NUSA TENGGARA COMPLETE - Over 68%!",
   "cpu_monitoring": "active (<70%)",
   "context_flush": "active",
-  "next_target": "Bali + Nusa Tenggara (25 kabupaten)",
-  "last_updated": "2026-04-29T06:15:00Z"
+  "next_target": "Maluku + Papua (164 kabupaten)",
+  "last_updated": "2026-04-29T06:45:00Z"
 }
