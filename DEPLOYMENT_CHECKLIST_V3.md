@@ -123,12 +123,13 @@ git push origin main
    - `__pycache__/` (already deleted)
    - `checkpoints/` (already deleted)
 
-**Option B: Git Push**
+**Option B: Git Push** (requires HF_TOKEN in environment)
 ```bash
 cd hf_spaces/tani-bot
 git remote set-url origin https://huggingface.co/spaces/baguswicak/tani-bot
 git add -A
 git commit -m "🚀 TaniBot V3.0 - All 5 Pages"
+# Token will be provided via GitHub Secrets in CI/CD
 git push origin main --force
 ```
 
@@ -137,10 +138,11 @@ git push origin main --force
 2. Click "Settings"
 3. Set Space SDK: **Streamlit**
 4. Set Python version: **3.10**
-5. Add Environment Variables:
+5. Add Environment Variables (store in GitHub Secrets for CI/CD):
    - `SUPABASE_URL`: `https://cdlybfnpphzzphwathjx.supabase.co`
-   - `SUPABASE_KEY`: [Your Supabase key]
-   - `GROQ_API_KEY`: [Your Groq key]
+   - `SUPABASE_KEY`: `${{ secrets.SUPABASE_KEY }}`
+   - `GROQ_API_KEY`: `${{ secrets.GROQ_API_KEY }}`
+   - `HF_TOKEN`: `${{ secrets.HF_TOKEN }}`
    - `GITHUB_REPO`: `wizzleweasel/tani-bot`
 
 ### Step 4: Test All 5 Pages
