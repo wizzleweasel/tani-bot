@@ -1,8 +1,10 @@
 {
-  "completed_provinces": ["Aceh", "Sumatera Utara"],
-  "total_processed": 55,
+  "completed_provinces": ["Aceh", "Sumatera Utara", "Jawa Barat"],
+  "total_processed": 82,
   "total_kabupaten": 514,
-  "progress_percent": 10.7,
-  "current_status": "Sumatera Utara COMPLETE - Moving to next provinces",
-  "last_updated": "2026-04-29T03:55:00Z"
+  "progress_percent": 16.0,
+  "current_status": "Jawa Barat COMPLETE - Approaching 100 milestone",
+  "cpu_monitoring": "active",
+  "context_flush": "active",
+  "last_updated": "2026-04-29T04:00:00Z"
 }
