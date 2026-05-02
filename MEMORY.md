@@ -99,6 +99,12 @@
 - Groq API rate limit handling needed (429 errors)
 - ✅ Bot token rotated 2026-05-01 - New active token
 
+### RAG Datasets (Supabase + Hugging Face)
+**Total:** 3,000 documents (1,000 per dataset)
+1. **tani-bot-qa** - Q&A pairs (pest, disease, fertilizer, cultivation)
+2. **tani-bot-keywords** - YouTube keyword research (7 clusters)
+3. **tani-bot-transcripts** - Video transcripts (future expansion)
+
 ---
 
 ## 📁 Key Files

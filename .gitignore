@@ -42,6 +42,19 @@ hf_datasets/
 *.pyc
 __pycache__/
 .env
+.env.*
+!.env.example
 venv/
-.env.local
+*.egg-info/
+.pytest_cache/
+.coverage
+htmlcov/
 *.log
+
+# Secrets (never commit these)
+*.pem
+*.key
+secrets.json
+credentials.json
+*secret*
+*credential*
