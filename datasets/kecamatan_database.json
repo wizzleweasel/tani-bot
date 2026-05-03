@@ -1,0 +1,30 @@
+{
+  "Pacet, Mojokerto, Jawa Timur": {
+    "lat": -7.5333,
+    "lon": 112.4333
+  },
+  "Bandung Wetan, Bandung, Jawa Barat": {
+    "lat": -6.9175,
+    "lon": 107.6191
+  },
+  "Jakarta Pusat, Jakarta Pusat, DKI Jakarta": {
+    "lat": -6.1862,
+    "lon": 106.8341
+  },
+  "Sleman, Sleman, DIY": {
+    "lat": -7.7,
+    "lon": 110.35
+  },
+  "Denpasar Barat, Denpasar, Bali": {
+    "lat": -8.6705,
+    "lon": 115.2126
+  },
+  "Medan Kota, Medan, Sumatera Utara": {
+    "lat": 3.5952,
+    "lon": 98.6722
+  },
+  "Makassar, Makassar, Sulawesi Selatan": {
+    "lat": -5.1477,
+    "lon": 119.4327
+  }
+}

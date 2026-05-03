@@ -1,0 +1,12 @@
+{
+  "1101010": {"kecamatan": "TEUPAH SELATAN", "kabupaten_code": "1101", "province": "Aceh", "lat": 2.36667, "lon": 96.43694},
+  "1101020": {"kecamatan": "SIMEULUE TIMUR", "kabupaten_code": "1101", "province": "Aceh", "lat": 2.64149, "lon": 96.04017},
+  "1101021": {"kecamatan": "TEUPAH BARAT", "kabupaten_code": "1101", "province": "Aceh", "lat": 2.61972, "lon": 96.07667},
+  "1101022": {"kecamatan": "TEUPAH TENGAH", "kabupaten_code": "1101", "province": "Aceh", "lat": 2.40689, "lon": 96.32476},
+  "1101030": {"kecamatan": "SIMEULUE TENGAH", "kabupaten_code": "1101", "province": "Aceh", "lat": 2.64149, "lon": 96.04017},
+  "1101031": {"kecamatan": "TELUK DALAM", "kabupaten_code": "1101", "province": "Aceh", "lat": 2.61972, "lon": 96.07667},
+  "1101032": {"kecamatan": "SIMEULUE CUT", "kabupaten_code": "1101", "province": "Aceh", "lat": 2.64149, "lon": 96.04017},
+  "1101040": {"kecamatan": "SALANG", "kabupaten_code": "1101", "province": "Aceh", "lat": 2.67, "lon": 95.87},
+  "1101050": {"kecamatan": "SIMEULUE BARAT", "kabupaten_code": "1101", "province": "Aceh", "lat": 2.61972, "lon": 96.07667},
+  "1101051": {"kecamatan": "ALAFAN", "kabupaten_code": "1101", "province": "Aceh", "lat": 2.67, "lon": 95.87}
+}
